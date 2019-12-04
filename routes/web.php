@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/sam', 'BasicViewController@sam');
+Route::get('/sam', 'BasicViewController@sam')->name('epic');
