@@ -1,0 +1,1 @@
+INSERT INTO `categories` (`id`, `name`) VALUES (NULL, 'Drinks'), (NULL, 'Snacks'), (NULL, 'Alcohol-free'), (NULL, 'Desserts');
