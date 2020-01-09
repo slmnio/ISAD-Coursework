@@ -21,4 +21,11 @@ class Item extends Model
     public function category() {
         return $this->belongsTo(Category::class);
     }
+
+    public $timestamps = false;
+
+    public function getImage() {
+        // random 100x100 food image
+        return "https://lorempixel.com/100/100/food/";
+    }
 }

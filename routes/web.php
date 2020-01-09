@@ -13,3 +13,5 @@
 
 Route::get('/', 'BasicViewController@home')->name('home');
 Route::get('/category/{category}', 'CategoryController@view')->name('category');
+
+Route::get('/prefill-items', 'PrefillController@items');

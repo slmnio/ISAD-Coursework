@@ -26,4 +26,6 @@ class Category extends Model
         return 'slug';
     }
 
+    public $timestamps = false;
+
 }
