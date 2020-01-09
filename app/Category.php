@@ -19,7 +19,11 @@ class Category extends Model
         return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $this->name)));
     }
     public function getImage() {
-        return $this->getSlug() . ".png";
+        return "/assets/categories/" . $this->getSlug() . ".png";
+    }
+    public function getRouteKeyName() {
+        // override routing table column name
+        return 'slug';
     }
 
 }

@@ -10,6 +10,7 @@
         @endif
     </title>
     <link rel="stylesheet" href="/assets/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/app.css">
 </head>
 <body>
 <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
