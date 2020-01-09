@@ -16,7 +16,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'username', 'password', 'is_admin'
+    ];
+
+    // Default values
+    protected $attributes = [
+        'is_admin' => false
     ];
 
     /**
@@ -36,4 +41,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // User model doesn't have timestamps (created_at/updated_at)
+    public $timestamps = false;
+
+    public function orders() {
+        return $this->hasMany(Order::class);
+    }
 }
