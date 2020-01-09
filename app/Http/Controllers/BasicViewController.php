@@ -9,6 +9,6 @@ class BasicViewController extends Controller
     //
 
     public function sam() {
-        return 'epic';
+        return view('basic');
     }
 }
