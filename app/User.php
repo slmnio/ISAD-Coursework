@@ -44,4 +44,8 @@ class User extends Authenticatable
 
     // User model doesn't have timestamps (created_at/updated_at)
     public $timestamps = false;
+
+    public function orders() {
+        return $this->hasMany(Order::class);
+    }
 }
