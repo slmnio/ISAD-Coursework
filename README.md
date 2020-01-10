@@ -5,6 +5,7 @@
 - [Laravel 5](https://github.com/laravel/laravel) with Eloquent
 - [Bootswatch](https://bootswatch.com/) styled [Boostrap 4](https://getboostrap.com)
 - Raw [ECMAScript 6](https://en.wikipedia.org/wiki/ECMAScript) (whilst Bootstrap requires jQuery and Popper, I didn't use either of them)
+- [Notyf](https://github.com/caroso1222/notyf) for lovely notifications.
 
 # Media
 
