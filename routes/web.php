@@ -29,6 +29,7 @@ Route::middleware('auth')->prefix('orders')->name('order.')->group(function() {
     Route::get('/', 'OrderController@list')->name('list');
     Route::get('/{order}', 'OrderController@view')->name('view');
     Route::delete('/{order}', 'OrderController@delete')->name('delete');
+    Route::post('/{order}', 'OrderController@alterQuantity')->name('alterQuantity');
 });
 
 //Route::group(["name" => "api", "prefix" => "api."], function() {

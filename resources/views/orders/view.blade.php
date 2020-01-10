@@ -19,6 +19,10 @@
     <div id="order-list">
         @foreach ($order->items as $item)
             <li class="list-group-item d-flex align-items-center">
+                <div class="item-tools mr-2">
+                    <div class="btn btn-info ItemQuantityAdjust px-2 py-1 mr-1" data-change="1" data-id="{{ $item->id }}"><i class="fas fa-fw fa-plus text-white" ></i></div>
+                    <div class="btn btn-info ItemQuantityAdjust px-2 py-1 mr-1" data-change="-1" data-id="{{ $item->id }}"><i class="fas fa-fw fa-minus text-white" ></i></div>
+                </div>
                 <div class="item-quantity">{{ $item->pivot->quantity }} &times;</div>
                 <div class="item-img border rounded" style="background: url({{ $item->getImage() }}) center no-repeat;"></div>
                 <div class="item-name flex-grow-1">{{ $item->name }}</div>
@@ -53,6 +57,21 @@
         })
         actuator.setFailure(function(data) {
             notyf.error("There was an error deleting this order.");
+        })
+    </script>
+
+    <script>
+        let adjustActuator = new Actuator(".ItemQuantityAdjust", `{{ route('order.alterQuantity', $order) }}`, "POST");
+        adjustActuator.setMiddleware(function(el) {
+            adjustActuator.put("item_id", el.dataset.id);
+            adjustActuator.put("change", el.dataset.change);
+            return true;
+        })
+        adjustActuator.setSuccess(function(data) {
+            if (data.reload) window.location.reload();
+        })
+        adjustActuator.setFailure(function(data) {
+            notyf.error("There was an error editing this order.");
         })
     </script>
 @endsection

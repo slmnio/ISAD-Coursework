@@ -51,12 +51,6 @@
     </div>
 </nav>
 
-@if (Session::has('success-message'))
-    <div class="alert alert-success mb-4" style="margin:0 auto; max-width: 400px;">{{ Session::get('success-message') }}</div>
-@endif
-@if (Session::has('error-message'))
-    <div class="alert alert-danger mb-4" style="margin:0 auto; max-width: 400px;">{{ Session::get('error-message') }}</div>
-@endif
 
 <div id="content">
     <div class="container">
@@ -73,6 +67,19 @@
 <script>
     const notyf = new Notyf({duration:3500});
 </script>
+
+
+@if (Session::has('success-message'))
+    <script>
+        notyf.success(`{{ Session::get('success-message') }}`)
+    </script>
+@endif
+@if (Session::has('error-message'))
+    <script>
+        notyf.success(`{{ Session::get('error-message') }}`)
+    </script>
+@endif
+
 <script>
 
     Array.from(document.querySelectorAll('.BitemDeleter')).forEach(el => {

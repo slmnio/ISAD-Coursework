@@ -22,4 +22,25 @@ class OrderController extends Controller
         $order->delete();
         return Response::json(["redirect" => route('order.list')], 200);
     }
+    public function alterQuantity(Order $order, Request $request) {
+        $quantityChange = $request->input('change');
+        if (!$quantityChange) abort(400, "No change submitted");
+        $item = $order->items()->find($request->input('item_id'));
+        if (!$item) abort(400, "Couldn't find that item in this order.");
+
+        $prevQuantity = $order->items->find($item)->pivot->quantity;
+
+        if ($prevQuantity === 1 && $quantityChange === -1) {
+            $order->items()->detach($item);
+            session()->flash("success-message", "The item has been removed.");
+            return Response::json(["reload" => true], 200);
+        }
+
+        $order->items()->updateExistingPivot($item, [
+            "quantity" => $prevQuantity += $quantityChange
+        ]);
+
+        session()->flash("success-message", "The item quantity has been adjusted.");
+        return Response::json(["reload" => true], 200);
+    }
 }
