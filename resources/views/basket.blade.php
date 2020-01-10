@@ -94,12 +94,9 @@
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        notyf.success(`Order #${data.order.id} placed.`);
                         el.innerHTML = `<i class="fas fa-check fa-fw"></i> Ordered`;
                         if (data.redirect) {
-                            setTimeout(function() {
-                                window.location.href = data.redirect;
-                            }, 1500);
+                            window.location.href = data.redirect;
                         }
                     })
                 .catch(e => {
@@ -129,12 +126,8 @@
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        notyf.success(`Removed from your basket.`);
                         el.innerHTML = `<i class="fas fa-fw fa-check"></i>`;
-
-                        setTimeout(function() {
-                            window.location.reload()
-                        }, 1500);
+                        window.location.reload()
                     })
                 .catch(e => {
                     console.error(e);

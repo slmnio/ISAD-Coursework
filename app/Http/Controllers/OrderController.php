@@ -20,6 +20,7 @@ class OrderController extends Controller
     public function delete(Order $order) {
         if ($order->customer->id !== Auth::user()->id) abort(403);
         $order->delete();
+        session()->flash("success-message", "Order deleted.");
         return Response::json(["redirect" => route('order.list')], 200);
     }
     public function alterQuantity(Order $order, Request $request) {

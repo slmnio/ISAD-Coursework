@@ -50,10 +50,7 @@
             return confirm("Are you sure you want to delete this order?");
         })
         actuator.setSuccess(function(data) {
-            notyf.success("Order deleted.")
-            setTimeout(function() {
-                window.location.href = data.redirect;
-            }, 1500);
+            window.location.href = data.redirect;
         })
         actuator.setFailure(function(data) {
             notyf.error("There was an error deleting this order.");

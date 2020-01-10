@@ -32,6 +32,13 @@ Route::middleware('auth')->prefix('orders')->name('order.')->group(function() {
     Route::post('/{order}', 'OrderController@alterQuantity')->name('alterQuantity');
 });
 
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function() {
+
+    Route::name('item.')->group(function(){
+        Route::get('/', 'AdminItemController@list')->name('list');
+    });
+});
+
 //Route::group(["name" => "api", "prefix" => "api."], function() {
 Route::name('api.')->prefix('api')->group(function() {
     // Exposed APIs for front-end

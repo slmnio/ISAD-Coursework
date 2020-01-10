@@ -29,6 +29,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('order.list') }}">Your Orders</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.item.list') }}">Administration</a>
+                </li>
                 @else
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -100,12 +103,8 @@
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
-                    notyf.success(`Removed from your basket.`);
                     el.innerHTML = `<i class="fas fa-fw fa-check"></i>`;
-
-                    setTimeout(function() {
-                        window.location.reload()
-                    }, 1500);
+                    window.location.reload()
                 })
                 .catch(e => {
                     console.error(e);

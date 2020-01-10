@@ -62,6 +62,7 @@ class ItemController extends Controller
             $i++;
         }
         session()->put('cart', $newCart);
+        session()->flash("success-message", "Removed from your basket.");
         return Response::json(["reload" => true], 200);
     }
 
@@ -131,7 +132,9 @@ class ItemController extends Controller
 
         $this->emptyBasket(true);
 
-        return Response::json(["order" => $order, "redirect" => route('order.view', $order)], 201);
+        session()->flash("success-message", "Order #". $order->id ." placed.");
+
+        return Response::json(["redirect" => route('order.view', $order)], 201);
 
     }
 }
