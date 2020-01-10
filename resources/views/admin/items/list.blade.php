@@ -1,42 +1,37 @@
 @extends('layouts.app')
-@section('title', 'Your Orders')
+@section('title', 'Pub! Items')
 
 @section('content')
-    <h1 class="text-center mb-3">Your orders</h1>
-
-    <table class="table table-bordered" id="order-list">
-        <tbody>
-        @foreach ($orders as $order)
-            <tr>
-                <td>
-                    <div class="order-top order-date mb-2 text-center d-inline-block w-100">
-                        <a href="{{ route('order.view', $order) }}" class="">Order #{{ $order->id }}</a>{{ $order->table_number ? " at table #" . $order->table_number : "" }}<br> {{ $order->created_at->format('g:ia jS F Y') }}
-                    </div>
-
-
-                    <ul class="list-group">
-                    @foreach ($order->items as $item)
-
-                            <li class="list-group-item d-flex align-items-center">
-                                <div class="item-quantity">{{ $item->pivot->quantity }} &times;</div>
-                                <div class="item-img border rounded" style="background: url({{ $item->getImage() }}) center no-repeat;"></div>
-                                <div class="item-name flex-grow-1">{{ $item->name }}</div>
-                                @if ($item->pivot->quantity > 1)
-                                    <div class="item-subtotal text-muted mr-5">{{ $item->pivot->quantity }} @ {{ $item->getFormattedPrice() }}</div>
-                                @endif
-                                <div class="item-cost">{{ \App\Item::formatPrice($item->cost_pence * $item->pivot->quantity) }}</div>
-                            </li>
-                    @endforeach
-                    </ul>
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
-
-
-    <style>.pagination{justify-content: center}</style>
-    <div class="pagination-holder">
-        {{ $orders->links() }}
+    <div class="breadcrumb">
+        <div class="flex-grow-1"></div>
+        <a href="{{ route('admin.item.creator') }}" class="btn btn-primary"><i class="fas fa-fw fa-plus"></i> Create item</a>
     </div>
+    <h1 class="text-center mb-3 mt-4">Items</h1>
+
+    <div id="order-list">
+        @foreach ($items as $item)
+            <li class="list-group-item d-flex align-items-center" id="order-list">
+                <div class="item-id text-center" style="width: 50px;">#{{ $item->id }}</div>
+                <div class="item-img border rounded"
+                     style="background: url({{ $item->getImage() }}) center no-repeat;"></div>
+                <div class="item-name flex-grow-1">{{ $item->name }}</div>
+                <div class="item-tools mr-2">
+                    <a href="{{ route('admin.item.view', $item) }}" class="btn btn-primary px-2 py-1 mr-1">
+                        <i class="fas fa-fw fa-pencil text-white"></i>
+                    </a>
+                </div>
+            </li>
+        @endforeach
+    </div>
+
+
+    <style>.pagination {
+            justify-content: center
+        }</style>
+    <div class="pagination-holder">
+        {{ $items->links() }}
+    </div>
+@endsection
+
+@section('script')
 @endsection

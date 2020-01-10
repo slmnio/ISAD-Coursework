@@ -34,8 +34,11 @@ Route::middleware('auth')->prefix('orders')->name('order.')->group(function() {
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function() {
 
-    Route::name('item.')->group(function(){
+    Route::name('item.')->prefix('items')->group(function(){
         Route::get('/', 'AdminItemController@list')->name('list');
+        Route::get('/new', 'AdminItemController@creator')->name('creator');
+        Route::get('/{item}', 'AdminItemController@view')->name('view');
+        Route::delete('/{item}', 'AdminItemController@delete')->name('delete');
     });
 });
 

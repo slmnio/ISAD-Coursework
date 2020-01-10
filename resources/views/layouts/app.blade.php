@@ -9,6 +9,7 @@
             Pub!
         @endif
     </title>
+    <link rel="icon" href="/assets/icon.png">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/assets/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/app.css">

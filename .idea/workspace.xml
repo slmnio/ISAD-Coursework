@@ -87,6 +87,9 @@
     <property name="ts.external.directory.path" value="C:\Users\solca\AppData\Local\JetBrains\Toolbox\apps\PhpStorm\ch-0\193.5662.63\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\solca\Documents\GitHub\ISAD-Coursework\resources\views\admin\items" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\solca\Documents\GitHub\ISAD-Coursework\resources\views\admin\items" />
       <recent name="C:\Users\solca\Documents\GitHub\ISAD-Coursework\resources\views\orders" />
@@ -145,14 +148,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1313" y="209" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578612481045" />
-    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1578634223813">
+    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1578635609664">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578634223813" />
-    <state x="1220" y="263" key="FileChooserDialogImpl" timestamp="1578634296645">
+    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578635609664" />
+    <state x="1220" y="263" key="FileChooserDialogImpl" timestamp="1578635364476">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1220" y="263" key="FileChooserDialogImpl/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578634296645" />
+    <state x="1220" y="263" key="FileChooserDialogImpl/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578635364476" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1578597340938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -174,15 +177,15 @@
     </state>
     <state x="-886" y="450" key="NewPhpFileDialog/0.0.1920.1040/-1440.76.1440.900@-1440.76.1440.900" timestamp="1578606679581" />
     <state x="739" y="432" key="NewPhpFileDialog/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578629040636" />
-    <state x="555" y="55" width="810" height="930" key="find.popup" timestamp="1578634097408">
+    <state x="555" y="55" width="810" height="930" key="find.popup" timestamp="1578635565942">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1024" y="124" width="654" height="804" key="find.popup/0.0.1920.1040/-1440.76.1440.900@-1440.76.1440.900" timestamp="1578633355039" />
-    <state x="555" y="55" width="810" height="930" key="find.popup/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578634097408" />
-    <state x="501" y="119" width="896" height="782" key="search.everywhere.popup" timestamp="1578634475787">
+    <state x="555" y="55" width="810" height="930" key="find.popup/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578635565942" />
+    <state x="501" y="119" width="896" height="782" key="search.everywhere.popup" timestamp="1578636129392">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1064" y="179" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040/-1440.76.1440.900@-1440.76.1440.900" timestamp="1578633521862" />
-    <state x="501" y="119" width="896" height="782" key="search.everywhere.popup/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578634475787" />
+    <state x="501" y="119" width="896" height="782" key="search.everywhere.popup/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578636129392" />
   </component>
 </project>
