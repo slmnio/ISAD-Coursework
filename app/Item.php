@@ -10,9 +10,15 @@ class Item extends Model
         "name", "description", "category_id", "cost_pence", "quantity", "enabled"
     ];
 
+    public static function formatPrice($pence) {
+        return (env('SITE_CURRENCY', "£")) . number_format($pence / 100, 2);
+    }
+
+
     public function getFormattedPrice() {
         return (env('SITE_CURRENCY', "£")) . number_format($this->cost_pence / 100, 2);
     }
+
 
     public function orders() {
         return $this->belongsToMany(Order::class, "order_items", "item_id", "order_id");
@@ -26,6 +32,6 @@ class Item extends Model
 
     public function getImage() {
         // random 100x100 food image
-        return "https://lorempixel.com/100/100/food/";
+        return "https://loremflickr.com/100/100/". $this->category->slug ."?_zzz_id=" . $this->id;
     }
 }
