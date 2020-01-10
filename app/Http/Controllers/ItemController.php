@@ -137,4 +137,14 @@ class ItemController extends Controller
         return Response::json(["redirect" => route('order.view', $order)], 201);
 
     }
+
+    public function items() {
+        $items = Item::with('category')
+            ->where('enabled', 1)
+            ->get();
+
+        // Item has $hidden quantity, so you can't publicly see quantity
+
+        return Response::json(["items" => $items], 200);
+    }
 }

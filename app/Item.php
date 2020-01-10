@@ -34,6 +34,8 @@ class Item extends Model
 
     public $attributes = [ "enabled" => true ];
 
+    public $hidden = ["quantity"];
+
     public $timestamps = false;
 
     public function getImage() {

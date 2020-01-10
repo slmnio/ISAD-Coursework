@@ -30,9 +30,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('order.list') }}">Your Orders</a>
                 </li>
+                @if(Auth::user()->is_admin)
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.item.list') }}">Administration</a>
                 </li>
+                @endif
                 @else
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">Login</a>

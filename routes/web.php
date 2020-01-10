@@ -48,12 +48,14 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 Route::name('api.')->prefix('api')->group(function() {
     // Exposed APIs for front-end
     Route::post('/login', 'AuthController@doLogin')->name('doLogin');
+    Route::delete('/cart', 'ItemController@emptyBasket')->name('empty-cart');
     Route::middleware('auth')->group(function() {
 
         Route::put('/cart', 'ItemController@addToCart')->name('add-to-cart');
-        Route::delete('/cart', 'ItemController@emptyBasket')->name('empty-cart');
         Route::post('/orders', 'ItemController@order')->name('order');
 
         Route::post('/remove-from-cart', 'ItemController@removeCartItem')->name('remove-from-cart');
     });
+
+    Route::get('/items', 'ItemController@items');
 });

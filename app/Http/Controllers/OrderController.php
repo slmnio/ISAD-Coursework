@@ -13,16 +13,19 @@ class OrderController extends Controller
         if ($order->customer->id !== Auth::user()->id) abort(403);
         return view('orders.view')->with("order", $order);
     }
+
     public function list(){
         $orders = Auth::user()->orders()->orderBy('created_at', 'desc')->paginate(4);
         return view('orders.list')->with("orders", $orders);
     }
+
     public function delete(Order $order) {
         if ($order->customer->id !== Auth::user()->id) abort(403);
         $order->delete();
         session()->flash("success-message", "Order deleted.");
         return Response::json(["redirect" => route('order.list')], 200);
     }
+
     public function alterQuantity(Order $order, Request $request) {
         $quantityChange = $request->input('change');
         if (!$quantityChange) abort(400, "No change submitted");
@@ -31,7 +34,7 @@ class OrderController extends Controller
 
         $prevQuantity = $order->items->find($item)->pivot->quantity;
 
-        if ($prevQuantity === 1 && $quantityChange === -1) {
+        if ($prevQuantity === 1 && intval($quantityChange) === -1) {
             $order->items()->detach($item);
             session()->flash("success-message", "The item has been removed.");
             return Response::json(["reload" => true], 200);
