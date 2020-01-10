@@ -76,7 +76,7 @@
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="drink&#9;FILE&#9;file://C:/Users/Jill/Documents/GitHub/ISAD-Coursework/app/Drink.php&#10;.env.ex&#9;FILE&#9;file://C:/Users/Jill/Documents/GitHub/ISAD-Coursework/.env.example&#10;.ENV&#9;FILE&#9;file://C:/Users/Jill/Documents/GitHub/ISAD-Coursework/.env&#10;.env&#9;FILE&#9;file://C:/Users/Jill/Documents/GitHub/ISAD-Coursework/.env&#10;basic&#9;null&#9;null&#10;web.php&#9;FILE&#9;file://C:/Users/Jill/Documents/GitHub/ISAD-Coursework/routes/web.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/orders" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -84,6 +84,14 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="ts.external.directory.path" value="C:\Users\solca\AppData\Local\JetBrains\Toolbox\apps\PhpStorm\ch-0\193.5662.63\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\solca\Documents\GitHub\ISAD-Coursework\resources\views\orders" />
+      <recent name="C:\Users\solca\Documents\GitHub\ISAD-Coursework\resources\views" />
+      <recent name="C:\Users\solca\Documents\GitHub\ISAD-Coursework\public\assets" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -128,6 +136,18 @@
       <screen x="-1440" y="76" width="1440" height="900" />
     </state>
     <state x="-1128" y="185" key="#SQL_Dialects/0.0.1920.1040/-1440.76.1440.900@-1440.76.1440.900" timestamp="1578605342594" />
+    <state x="-974" y="330" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578607631612">
+      <screen x="-1440" y="76" width="1440" height="900" />
+    </state>
+    <state x="-974" y="330" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1440.76.1440.900@-1440.76.1440.900" timestamp="1578607631612" />
+    <state x="1313" y="209" key="#com.intellij.ide.util.MemberChooser" timestamp="1578612481045">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1313" y="209" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578612481045" />
+    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1578631704722">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="276" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578631704722" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1578597340938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -144,9 +164,20 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578597340938" />
-    <state x="-1064" y="179" width="672" height="676" key="search.everywhere.popup" timestamp="1578605080539">
-      <screen x="-1440" y="76" width="1440" height="900" />
+    <state x="739" y="432" key="NewPhpFileDialog" timestamp="1578629040636">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1064" y="179" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040/-1440.76.1440.900@-1440.76.1440.900" timestamp="1578605080539" />
+    <state x="-886" y="450" key="NewPhpFileDialog/0.0.1920.1040/-1440.76.1440.900@-1440.76.1440.900" timestamp="1578606679581" />
+    <state x="739" y="432" key="NewPhpFileDialog/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578629040636" />
+    <state x="555" y="55" width="810" height="930" key="find.popup" timestamp="1578628805191">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1024" y="124" width="607" height="804" key="find.popup/0.0.1920.1040/-1440.76.1440.900@-1440.76.1440.900" timestamp="1578606031556" />
+    <state x="555" y="55" width="810" height="930" key="find.popup/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578628805191" />
+    <state x="501" y="119" width="896" height="782" key="search.everywhere.popup" timestamp="1578631697238">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1064" y="179" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040/-1440.76.1440.900@-1440.76.1440.900" timestamp="1578609630829" />
+    <state x="501" y="119" width="896" height="782" key="search.everywhere.popup/0.0.1920.1040/-1440.76.1440.900@0.0.1920.1040" timestamp="1578631697238" />
   </component>
 </project>
