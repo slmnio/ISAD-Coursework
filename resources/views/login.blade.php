@@ -25,8 +25,9 @@
                 if (this.classList.contains('disabled')) return;
 
                 Array.from(document.querySelectorAll('.UserLoginButton')).forEach(e => e.classList.add('disabled'));
+                Array.from(document.querySelectorAll('.UserLoginButton')).forEach(e => e.classList.add('btn-disabled'));
 
-                document.querySelector('h1').innerHTML = `<i class="fas fa-spinner fa-fw fa-pulse"></i> Authenticating...`;
+                //document.querySelector('h1').innerHTML = `<i class="fas fa-spinner fa-fw fa-pulse"></i> Authenticating...`;
 
                 fetch(`{{ route('api.doLogin') }}`, {
                     method: "POST",

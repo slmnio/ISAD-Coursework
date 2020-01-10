@@ -18,4 +18,13 @@ class Order extends Model
         return $this->belongsToMany(Item::class, "order_items", "order_id", "item_id")->withPivot('quantity');
     }
 
+    public function getTotal() {
+        // there's probably a nice one-liner to do this using the pivots
+        $total = 0;
+        foreach ($this->items as $item) {
+            $total += ($item->pivot->quantity * $item->pence_cost);
+        }
+        return $total;
+    }
+
 }

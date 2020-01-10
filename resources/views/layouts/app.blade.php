@@ -21,10 +21,13 @@
         <ul class="navbar-nav mr-auto">
                 @if(Auth::check())
                 <li class="nav-item">
-                    <div class="navbar-text">{{ Auth::user()->name  }}</div>
+                    <div class="navbar-text"><i class="fas fa-user fa-fw"></i> {{ Auth::user()->name  }}</div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('order.list') }}">Your Orders</a>
                 </li>
                 @else
                 <li class="nav-item">

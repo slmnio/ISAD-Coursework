@@ -22,8 +22,18 @@
                 <div class="item-quantity">{{ $item->pivot->quantity }} &times;</div>
                 <div class="item-img border rounded" style="background: url({{ $item->getImage() }}) center no-repeat;"></div>
                 <div class="item-name flex-grow-1">{{ $item->name }}</div>
+                @if ($item->pivot->quantity > 1)
+                    <div class="item-subtotal text-muted mr-5">{{ $item->pivot->quantity }} @ {{ $item->getFormattedPrice() }}</div>
+                @endif
+                <div class="item-cost">{{ \App\Item::formatPrice($item->cost_pence * $item->pivot->quantity) }}</div>
             </li>
             @endforeach
+
+            <li class="list-group-item d-flex" id="total">
+                <div class="flex-grow-1"></div>
+                <div class="mr-3 text-muted">Total</div>
+                <div class="text-info"><b>{{ \App\Item::formatPrice($order->getTotal()) }}</b></div>
+            </li>
     </div>
 
 @endsection
