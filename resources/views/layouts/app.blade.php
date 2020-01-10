@@ -70,6 +70,102 @@
 <script>
     const notyf = new Notyf({duration:3500});
 </script>
+<script>
+
+    Array.from(document.querySelectorAll('.BitemDeleter')).forEach(el => {
+        el.addEventListener('click', function() {
+            if (this.classList.contains('disabled')) return;
+            if (!confirm("Are you sure you want to remove an item from your basket?")) return;
+
+            this.innerHTML = `<i class="fas fa-spinner fa-fw fa-pulse"></i>`;
+            this.classList.add('disabled');
+
+            fetch(`{{ route('api.remove-from-cart') }}`, {
+                method: "POST",
+                headers: {"Content-Type": "application/json", 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content},
+                body: JSON.stringify({
+                    "item_id": el.dataset.id
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    notyf.success(`Removed from your basket.`);
+                    el.innerHTML = `<i class="fas fa-fw fa-check"></i>`;
+
+                    setTimeout(function() {
+                        window.location.reload()
+                    }, 1500);
+                })
+                .catch(e => {
+                    console.error(e);
+                    notyf.error("An error occured");
+                    el.classList.remove('btn-success')
+                    el.classList.add('btn-danger')
+                    el.innerHTML = `<i class="fas fa-times"></i>`;
+                })
+        })
+    })
+</script>
+<script>
+    // making a single handler
+    class Actuator {
+        constructor(selector, route, method) {
+            this.elements = Array.from(document.querySelectorAll(selector));
+            this.route = route;
+            this.method = method;
+            this.data = {};
+
+            this.setListeners();
+        }
+
+        setListeners() {
+            let instance = this;
+            this.elements.forEach(el => {
+                el.addEventListener('click', function() {
+                    if (el.classList.contains('disabled')) return;
+                    if (instance.passesMiddleware(this)) {
+                        el.classList.add('disabled');
+                        instance.sendRequest();
+                    }
+                });
+            })
+        }
+
+        passesMiddleware(element) {
+            if (!this.middlewareFn) return true;
+            return this.middlewareFn(element);
+        }
+
+        setMiddleware(fn) {
+            this.middlewareFn = fn;
+        }
+
+        put(key, val) {
+            this.data[key] = val;
+        }
+
+        sendRequest() {
+            fetch(this.route, {
+                method: this.method,
+                headers: {
+                    "Content-Type": "application/json",
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                },
+                body: JSON.stringify(this.data)
+            })
+                .then(res => res.json())
+                .then(data => this.successFn(data))
+                .catch(e => this.failureFn(e))
+        }
+        setSuccess(fn) {
+            this.successFn = fn;
+        }
+        setFailure(fn) {
+            this.failureFn = fn;
+        }
+    }
+</script>
 @yield('scripts')
 </body>
 </html>

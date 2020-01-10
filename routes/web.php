@@ -13,26 +13,22 @@
 
 Route::get('/', 'BasicViewController@home')->name('home');
 
-
-
 Route::get('/category/{category}', 'CategoryController@view')->name('category');
 Route::get('/basket', 'ItemController@viewBasket')->name('basket');
 
-
 Route::get('/prefill-items', 'PrefillController@items');
 Route::get('/prefill-users', 'PrefillController@users');
-
 
 
 Route::get('/login', 'BasicViewController@login')->name('login');
 Route::get('/logout', 'AuthController@doLogout')->name('logout');
 
 
-
 Route::middleware('auth')->prefix('orders')->name('order.')->group(function() {
     // RESTful-like structure
     Route::get('/', 'OrderController@list')->name('list');
     Route::get('/{order}', 'OrderController@view')->name('view');
+    Route::delete('/{order}', 'OrderController@delete')->name('delete');
 });
 
 //Route::group(["name" => "api", "prefix" => "api."], function() {

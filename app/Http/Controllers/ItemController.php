@@ -131,7 +131,7 @@ class ItemController extends Controller
 
         $this->emptyBasket(true);
 
-        return Response::json(["order" => $order, "redirect" => route('order.view', $order)], 200);
+        return Response::json(["order" => $order, "redirect" => route('order.view', $order)], 201);
 
     }
 }
