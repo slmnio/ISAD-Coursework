@@ -16,6 +16,13 @@
                      style="background: url({{ $item->getImage() }}) center no-repeat;"></div>
                 <div class="item-name flex-grow-1">{{ $item->name }}</div>
                 <div class="item-tools mr-2">
+
+                    @if ($item->enabled)
+                        <span class="text-success mr-2"><i class="fas fa-fw fa-toggle-on"></i> Enabled</span>
+                    @else
+                        <span class="text-danger mr-2"><i class="fas fa-fw fa-toggle-off"></i> Disabled</span>
+                    @endif
+
                     <a href="{{ route('admin.item.view', $item) }}" class="btn btn-primary px-2 py-1 mr-1">
                         <i class="fas fa-fw fa-pencil text-white"></i>
                     </a>

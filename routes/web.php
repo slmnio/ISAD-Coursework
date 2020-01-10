@@ -37,8 +37,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::name('item.')->prefix('items')->group(function(){
         Route::get('/', 'AdminItemController@list')->name('list');
         Route::get('/new', 'AdminItemController@creator')->name('creator');
+        Route::post('/', 'AdminItemController@create')->name('create');
         Route::get('/{item}', 'AdminItemController@view')->name('view');
         Route::delete('/{item}', 'AdminItemController@delete')->name('delete');
+        Route::post('/{item}/toggle', 'AdminItemController@toggle')->name('toggle');
     });
 });
 

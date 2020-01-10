@@ -4,7 +4,7 @@
 @section('content')
     <h1 class="text-center">{{ $category->name }}</h1>
 
-    @foreach($category->items->chunk(2) as $chunk)
+    @foreach($category->items->where('enabled', true)->chunk(2) as $chunk)
         <div class="row my-3">
             @foreach($chunk as $item)
                 <div class="col-sm-12 col-md-6">

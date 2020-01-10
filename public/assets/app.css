@@ -43,3 +43,9 @@ body {
     vertical-align: bottom;
     margin-right: 8px;
 }
+
+.item-large-img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}

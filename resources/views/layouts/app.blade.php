@@ -174,6 +174,15 @@
         setFailure(fn) {
             this.failureFn = fn;
         }
+
+        bindElement(key, selector) {
+            let instance = this;
+            document.querySelectorAll(selector).forEach(el => {
+                el.addEventListener('input', function () {
+                    instance.put(key, this.value);
+                })
+            });
+        }
     }
 </script>
 @yield('scripts')

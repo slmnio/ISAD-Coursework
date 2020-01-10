@@ -28,6 +28,12 @@ class Item extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function toggle() {
+        $this->enabled = (!$this->enabled);
+    }
+
+    public $attributes = [ "enabled" => true ];
+
     public $timestamps = false;
 
     public function getImage() {
