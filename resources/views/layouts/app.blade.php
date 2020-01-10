@@ -17,22 +17,21 @@
 <body>
 <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-primary">
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-        <!--
+
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Left</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
+                @if(Auth::check())
+                <li class="nav-item">
+                    <div class="navbar-text">{{ Auth::user()->name  }}</div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('logout') }}">Logout</a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                </li>
+                @endif
         </ul>
-        -->
     </div>
     <div class="mx-auto order-0">
         <a class="navbar-dark mx-auto text-white h4" href="/">Pub!</a>
@@ -48,6 +47,13 @@
         </ul>
     </div>
 </nav>
+
+@if (Session::has('success-message'))
+    <div class="alert alert-success mb-4" style="margin:0 auto; max-width: 400px;">{{ Session::get('success-message') }}</div>
+@endif
+@if (Session::has('error-message'))
+    <div class="alert alert-danger mb-4" style="margin:0 auto; max-width: 400px;">{{ Session::get('error-message') }}</div>
+@endif
 
 <div id="content">
     <div class="container">

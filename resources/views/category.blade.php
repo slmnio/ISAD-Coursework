@@ -23,11 +23,11 @@
             el.addEventListener('click', function() {
                 if(this.classList.contains('item--processing')) return;
 
-                this.querySelector('.item-icon').innerHTML = `<i class="fas fa-spinner fa-pulse"></i>`;
+                this.querySelector('.item-icon').innerHTML = `<i class="fas fa-spinner fa-fw fa-pulse"></i>`;
                 this.classList.add('item--processing');
 
                 fetch(`{{ route('api.add-to-cart') }}`, {
-                    method: "POST",
+                    method: "PUT",
                     headers: {"Content-Type": "application/json", 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content},
                     body: JSON.stringify({
                         "item_id": this.dataset.id,
@@ -45,6 +45,7 @@
                         }, 1500);
                     })
                     .catch(e => {
+                        console.error(e);
                         notyf.error("An error prevented you from adding that item to your basket.");
                     })
             })

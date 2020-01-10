@@ -32,6 +32,6 @@ class Item extends Model
 
     public function getImage() {
         // random 100x100 food image
-        return "https://loremflickr.com/100/100/". $this->category->slug ."?_zzz_id=" . $this->id;
+        return "https://source.unsplash.com/random/100x100?". $this->category->slug  . $this->id; // bypass cache
     }
 }

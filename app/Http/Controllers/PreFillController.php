@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Item;
+use App\User;
 use Illuminate\Http\Request;
 
 class PreFillController extends Controller
@@ -86,7 +87,26 @@ class PreFillController extends Controller
             "quantity" => 14,
             "category_id" => $category
         ]);
+        session()->flash("success-message", "Items created.");
+        return redirect()->route('home');
+    }
 
+    public function users() {
+
+        User::create([
+            "name" => "John Admin",
+            "username" => "jadmin",
+            "password" => "password",
+            "is_admin" => true
+        ]);
+        User::create([
+            "name" => "Jill Customer",
+            "username" => "jcustomer",
+            "password" => "password",
+            "is_admin" => false
+        ]);
+
+        session()->flash("success-message", "Users created.");
         return redirect()->route('home');
     }
 }
