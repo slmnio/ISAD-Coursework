@@ -27,6 +27,14 @@ Route::get('/prefill-users', 'PrefillController@users');
 Route::get('/login', 'BasicViewController@login')->name('login');
 Route::get('/logout', 'AuthController@doLogout')->name('logout');
 
+
+
+Route::middleware('auth')->prefix('orders')->name('order.')->group(function() {
+    // RESTful-like structure
+    Route::get('/', 'OrderController@list')->name('list');
+    Route::get('/{order}', 'OrderController@view')->name('view');
+});
+
 //Route::group(["name" => "api", "prefix" => "api."], function() {
 Route::name('api.')->prefix('api')->group(function() {
     // Exposed APIs for front-end
@@ -34,7 +42,7 @@ Route::name('api.')->prefix('api')->group(function() {
     Route::middleware('auth')->group(function() {
 
         Route::put('/cart', 'ItemController@addToCart')->name('add-to-cart');
-        Route::delete('/cart', 'ItemController@emptyCart')->name('empty-cart');
+        Route::delete('/cart', 'ItemController@emptyBasket')->name('empty-cart');
         Route::post('/orders', 'ItemController@order')->name('order');
 
         Route::post('/remove-from-cart', 'ItemController@removeCartItem')->name('remove-from-cart');

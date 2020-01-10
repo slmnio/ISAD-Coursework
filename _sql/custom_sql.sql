@@ -34,7 +34,7 @@ CALL StockInQueue();
 
 -- Update stock after an order goes through
 CREATE TRIGGER updateStock
-AFTER INSERT on order_items FOR EACH ROW
+BEFORE INSERT on order_items FOR EACH ROW
 	UPDATE items
     SET items.quantity = items.quantity - new.quantity
     WHERE items.id = new.item_id
@@ -47,8 +47,11 @@ AFTER UPDATE on items FOR EACH ROW
     SET new.enabled = false
     WHERE new.quantity <= 0
 
+-- These two triggers clash, bit like a circular reference?
 
 -- Combining them so they work together
+-- This would work if you have a connection with "allowMultipleQueries=true"
+-- alas we don't
 CREATE TRIGGER automateStock
 AFTER INSERT on order_items FOR EACH ROW
 BEGIN

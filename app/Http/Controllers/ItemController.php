@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Item;
+use App\Order;
 use DemeterChain\C;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 
 class ItemController extends Controller
@@ -27,10 +29,10 @@ class ItemController extends Controller
         return Response::json(session()->get('cart'), 200);
     }
 
-    public function emptyCart() {
+    public function emptyBasket($suppressMessage = false) {
         $cart = new Collection();
         session()->put('cart', $cart);
-        session()->flash("success-message", "Basket emptied.");
+        if (!$suppressMessage) session()->flash("success-message", "Basket emptied.");
         return Response::json(["reload" => true], 200);
     }
 
@@ -107,5 +109,29 @@ class ItemController extends Controller
             'basketItems' => array_values($this->getBasketItems()),
             'total' => $this->getTotal()
         ]);
+    }
+
+
+
+    public function order(Request $request) {
+        $table = $request->input('table_number');
+        $bitems = array_values($this->getBasketItems());
+
+        $order = Auth::user()->orders()->create([
+            "table_number" => $table
+        ]);
+
+        foreach ($bitems as $bitem) {
+            $item = $bitem->item;
+            $order->items()->attach($item, [
+                "quantity" => $bitem->quantity
+            ]);
+        }
+
+
+        $this->emptyBasket(true);
+
+        return Response::json(["order" => $order, "redirect" => route('order.view', $order)], 200);
+
     }
 }

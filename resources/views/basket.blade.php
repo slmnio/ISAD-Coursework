@@ -87,15 +87,20 @@
                 fetch(`{{ route('api.order') }}`, {
                     method: "POST",
                     headers: {"Content-Type": "application/json", 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content},
+                    body: JSON.stringify({
+                        table_number: tableNumber
+                    })
                 })
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        notyf.success(`Order placed.`);
-
-                        setTimeout(function() {
-                            el.classList.remove('item--processing');
-                        }, 1500);
+                        notyf.success(`Order #${data.order.id} placed.`);
+                        el.innerHTML = `<i class="fas fa-check fa-fw"></i> Ordered`;
+                        if (data.redirect) {
+                            setTimeout(function() {
+                                window.location.href = data.redirect;
+                            }, 1500);
+                        }
                     })
                 .catch(e => {
                     console.error(e);
@@ -106,8 +111,6 @@
                 })
             })
         })
-
-
         Array.from(document.querySelectorAll('.BitemDeleter')).forEach(el => {
             el.addEventListener('click', function() {
                 if (this.classList.contains('disabled')) return;
