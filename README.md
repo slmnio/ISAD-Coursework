@@ -1,5 +1,7 @@
 # Pub!
 
+[View fact sheet](https://github.com/solomonc/ISAD-Coursework/blob/master/Application%20Fact%20Sheet%201.pdf)
+
 **Pub** is a Laravel project to run a pub's online ordering. It uses:
 
 - [Laravel 5](https://github.com/laravel/laravel) with Eloquent
